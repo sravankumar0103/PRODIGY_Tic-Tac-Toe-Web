@@ -1,0 +1,147 @@
+/* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111111; /* Very dark background color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff; /* White text color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #1f1f1f; /* Darker background for container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out; /* Container scale animation */
+}
+
+.container:hover {
+    transform: scale(1.02); /* Scale up on hover */
+}
+
+h1 {
+    color: #ffffff; /* White text color */
+    margin-bottom: 20px;
+    font-size: 2.5rem; /* Larger font size */
+    transition: color 0.3s; /* Header color transition */
+}
+
+#start-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #e91e63; /* Pink background for button */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 20px;
+    opacity: 1; /* Initial opacity */
+}
+
+#start-btn:hover {
+    background-color: #ff4081; /* Lighter pink on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.5s ease-in-out; /* Opacity fade animation */
+}
+
+.board.hide {
+    opacity: 0; /* Fade out animation */
+    pointer-events: none; /* Disable pointer events during fade */
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #333333; /* Dark grey background for cells */
+    color: #ffffff; /* White text color */
+    font-size: 2rem; /* Larger font size for cell content */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    opacity: 1; /* Initial opacity */
+}
+
+.cell:hover {
+    background-color: #555555; /* Darker background on hover */
+}
+
+.cell.X::before, .cell.O::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Letter_X_in_red_circle.svg/480px-Letter_X_in_red_circle.svg.png');
+    background-size: cover;
+    position: absolute;
+    transition: transform 0.3s;
+}
+
+.cell.O::before {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Letter_O_in_blue_circle.svg/1200px-Letter_O_in_blue_circle.svg.png');
+}
+
+.status {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* White text color */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.5s ease-in-out; /* Opacity fade animation */
+}
+
+.status.hide {
+    opacity: 0; /* Fade out animation */
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #e91e63; /* Pink background for button */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    opacity: 0; /* Initial opacity */
+}
+
+.restart-btn:hover {
+    background-color: #ff4081; /* Lighter pink on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.restart-btn.show {
+    opacity: 1; /* Show button */
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards; /* Fade in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
